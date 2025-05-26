@@ -1,8 +1,20 @@
 # GeoGuessr
-Double screen, double player via direct cable
+Double screen, double player via direct cable, using X GUI
 
 ## Requirements
 ffmpeg
+
+## Installation
+- if new versions of raspios:
+```
+sudo nano /etc/rc.local
+```
+And copy the right file for each
+```
+sudo chmod +x /etc/rc.local
+sudo systemctl enable rc-local.service
+sudo reboot
+```
 
 ## Structure
 
