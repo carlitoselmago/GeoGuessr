@@ -44,7 +44,7 @@ sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority bash /home/pi/GeoGuessr/la
 sleep 3
 
 # Start the Python listener as user 'pi' (if it needs X), or as root if it does not need X
-sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority python3 /home/pi/GeoGuessr/vlc_listener.py &
+#sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority python3 /home/pi/GeoGuessr/vlc_listener.py &
 
 # Longer wait so followers are ready and listening (adjust as needed)
 sleep 10
