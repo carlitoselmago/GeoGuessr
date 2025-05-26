@@ -20,6 +20,8 @@ def get_video_duration(path):
 
 def send_trigger():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    # Allow sending to the broadcast address
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     for ip in UDP_IPS:
         sock.sendto(b"PLAY", (ip, UDP_PORT))
     print("Sent PLAY trigger to all Pis!")
