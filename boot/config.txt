@@ -1,0 +1,28 @@
+# HDMI-0 settings (first display)
+hdmi_group=2
+hdmi_mode=87
+hdmi_timings=720 1 20 20 40 720 1 10 10 5 0 0 0 65 0 39000000 4
+framebuffer_width=720
+framebuffer_height=720
+
+# HDMI-1 settings (second display)
+hdmi_group=2
+hdmi_mode=87
+hdmi_timings=720 1 20 20 40 720 1 10 10 5 0 0 0 65 0 39000000 5
+framebuffer_width=720
+framebuffer_height=720
+
+# Assign modes to specific HDMI ports:
+hdmi_cvt=720 720 65 6 0 0 0      # May help, but for custom timings, hdmi_timings is preferred
+
+# Set custom modes per port:
+hdmi_mode:0=87
+hdmi_mode:1=87
+hdmi_group:0=2
+hdmi_group:1=2
+hdmi_timings:0=720 1 20 20 40 720 1 10 10 5 0 0 0 65 0 39000000 4
+hdmi_timings:1=720 1 20 20 40 720 1 10 10 5 0 0 0 65 0 39000000 4
+framebuffer_width:0=720
+framebuffer_height:0=720
+framebuffer_width:1=720
+framebuffer_height:1=720

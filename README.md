@@ -2,7 +2,10 @@
 Double screen, double player via direct cable, using X GUI
 
 ## Requirements
-ffmpeg
+```
+sudo apt-get install wmctrl xdotool ffmpeg
+```
+Also vlc if not installed
 
 ## Installation
 - if new versions of raspios:
@@ -15,6 +18,7 @@ sudo chmod +x /etc/rc.local
 sudo systemctl enable rc-local.service
 sudo reboot
 ```
+Check /boot/config.txt for custom screen configuration of 720x720 dual screen, change accordingly
 
 ## Structure
 
@@ -30,27 +34,26 @@ Demo rc.local file
 #!/bin/bash
 # rc.local for sender
 
-export DISPLAY=:0
-
-# Wait for X to be ready
+# Wait for X to be ready (increase if your X takes longer to start)
 sleep 5
 
-# Launch VLC and prep window (paused, borderless)
-bash /home/pi/GeoGuessr/launch_vlc.sh
+# Launch VLC as user 'pi', with X11 authorization
+sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority bash /home/pi/GeoGuessr/launch_vlc.sh
 
 # Wait for VLC to open and settle
 sleep 3
 
-# Start the Python listener (in background)
-python3 /home/pi/GeoGuessr/vlc_listener.py &
+# Start the Python listener as user 'pi' (if it needs X), or as root if it does not need X
+sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority python3 /home/pi/GeoGuessr/vlc_listener.py &
 
 # Longer wait so followers are ready and listening (adjust as needed)
 sleep 10
 
-# Send the PLAY trigger (in background, so rc.local can finish)
-python3 /home/pi/GeoGuessr/play_trigger.py &
+# Send the PLAY trigger (usually doesn't need X, but if it does, same as above)
+sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority python3 /home/pi/GeoGuessr/vlc_autoloop_sender.py &
 
 exit 0
+
 
 ```
 
