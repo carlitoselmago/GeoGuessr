@@ -10,8 +10,8 @@ Run launch_vlc.sh on all raspberrys, on follower run vlc_listener.py
 Then when ready (with a bigger pause than follower) run play_trigger.py on Sender
 
 ### Sender
-launch_vlc.sh 
-vlc_autoloop_sender.py
+- launch_vlc.sh 
+- vlc_autoloop_sender.py
 
 Demo rc.local file
 ```
@@ -43,8 +43,8 @@ exit 0
 ```
 
 ### Follower
-launch_vlc.sh 
-vlc_listener.py
+- launch_vlc.sh 
+- vlc_listener.py
 
 Demo rc.local file
 ```
