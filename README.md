@@ -7,7 +7,7 @@ ffmpeg
 ## Structure
 
 Run launch_vlc.sh on all raspberrys, on follower run vlc_listener.py
-Then when ready (with a bigger pause than follower) run play_trigger.py on Sender
+Then when ready (with a bigger pause than follower) run vlc_autoloop_sender.py on Sender which will take care of sending the play messages to followers
 
 ### Sender
 - launch_vlc.sh 
