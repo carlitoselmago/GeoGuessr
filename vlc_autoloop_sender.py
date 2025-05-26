@@ -29,6 +29,7 @@ def send_trigger():
     print("Sent PLAY trigger to all Pis!")
 
 def play_local_vlc():
+    print("play_local_vlc")
     # Focus VLC window
     subprocess.run('xdotool search --name "VLC media player" windowactivate --sync', shell=True)
     # Seek to start (Home key)
@@ -39,7 +40,9 @@ def play_local_vlc():
 
 if __name__ == "__main__":
     # Wait for all listeners and VLC windows to be ready
+    print("Sleep for 10 seconds...")
     time.sleep(10)
+
 
     # Get the duration of the video in seconds
     video_duration = get_video_duration(VIDEO_PATH)
