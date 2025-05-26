@@ -2,6 +2,8 @@ import socket
 import subprocess
 import time
 import json
+import os
+os.environ["DISPLAY"] = ":0"
 
 UDP_IPS = ["255.255.255.255"]  # Replace with your Pis' IPs
 UDP_PORT = 5005
@@ -27,8 +29,13 @@ def send_trigger():
     print("Sent PLAY trigger to all Pis!")
 
 def play_local_vlc():
-    # Focus VLC and press space (toggle play/pause)
-    subprocess.run('xdotool search --name "VLC media player" windowactivate --sync key space', shell=True)
+    # Focus VLC window
+    subprocess.run('xdotool search --name "VLC media player" windowactivate --sync', shell=True)
+    # Seek to start (Home key)
+    subprocess.run('xdotool key Home', shell=True)
+    # Press space (play, just in case)
+    subprocess.run('xdotool key space', shell=True)
+
 
 if __name__ == "__main__":
     # Wait for all listeners and VLC windows to be ready
