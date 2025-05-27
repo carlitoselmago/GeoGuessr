@@ -1,5 +1,6 @@
 import socket
 import subprocess
+import time
 
 UDP_IP = ""
 UDP_PORT = 5005
@@ -19,7 +20,9 @@ while True:
         # Activate VLC window
         subprocess.run('xdotool search --name "VLC" windowactivate --sync', shell=True)
         if c>0:
+            print("Seek to start")
             subprocess.run('xdotool key p', shell=True)
+            time.sleep(1)
         else:
             subprocess.run('xdotool key space', shell=True)
         c+=1

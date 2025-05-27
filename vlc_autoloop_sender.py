@@ -52,7 +52,9 @@ def play_local_vlc(i=0):
     # Seek to beginning
     subprocess.run('xdotool key Home', shell=True)
     if (i>0):
+        print("Seek to start")
         subprocess.run('xdotool key p', shell=True)
+        time.sleep(1)
     else:
         # Start playback
         subprocess.run('xdotool key space', shell=True)
