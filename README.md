@@ -35,6 +35,10 @@ sudo nmcli con add type ethernet ifname eth0 con-name eth0-static ip4 192.168.10
 sudo nmcli con up eth0-static
 ```
 
+- Note on audio
+Use alsamixer for setting up volume
+and then this to store it sudo alsactl store
+
 ## Structure
 
 Run launch_vlc.sh on all raspberrys, on follower run vlc_listener.py

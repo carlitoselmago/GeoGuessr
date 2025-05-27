@@ -20,6 +20,6 @@ while True:
         subprocess.run('xdotool search --name "VLC" windowactivate --sync', shell=True)
         if c>0:
             subprocess.run('xdotool key p', shell=True)
-       
-        subprocess.run('xdotool key space', shell=True)
+        else:
+            subprocess.run('xdotool key space', shell=True)
         c+=1
