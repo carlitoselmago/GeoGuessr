@@ -47,14 +47,13 @@ def send_trigger():
 
 def play_local_vlc():
     print("Restarting VLC playback...")
-    # Activate window
+    # Activate VLC window
     subprocess.run('xdotool search --name "VLC" windowactivate --sync', shell=True)
-    # Force seek to 0
+    # Seek to beginning
     subprocess.run('xdotool key Home', shell=True)
-    # Make sure it's not paused: press space twice to unpause regardless of state
+    # Start playback
     subprocess.run('xdotool key space', shell=True)
-    time.sleep(0.1)  # small delay to allow VLC to catch up
-    subprocess.run('xdotool key space', shell=True)
+
 
 def udp_listener():
     """Listener that triggers play_local_vlc() on UDP 'PLAY', ignoring own broadcasts."""
