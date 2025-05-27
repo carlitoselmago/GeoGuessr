@@ -66,20 +66,17 @@ Demo rc.local file
 #!/bin/bash
 # rc.local for follower
 
-# Make sure DISPLAY is set for X apps (change :0 if needed)
-export DISPLAY=:0
-
 # Wait for X to be ready
 sleep 5
 
-# Launch VLC and prep window (paused, borderless)
-bash /home/pi/GeoGuessr/launch_vlc.sh
+# Launch VLC as user 'pi', with X11 authorization
+sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority bash /home/pi/GeoGuessr/launch_vlc.sh
 
 # Wait for VLC to open and settle
 sleep 3
 
 # Start the Python listener (in background)
-python3 /home/pi/GeoGuessr/vlc_listener.py &
+sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority python3 /home/pi/GeoGuessr/vlc_listener.py &
 
 exit 0
 ```

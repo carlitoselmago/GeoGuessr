@@ -7,7 +7,7 @@ import threading
 
 os.environ["DISPLAY"] = ":0"
 
-UDP_IPS = ["255.255.255.255"]  # Broadcast to all Pis
+UDP_IPS = ["192.168.10.255"]  # Broadcast to all Pis
 UDP_PORT = 5005
 VIDEO_PATH = "/home/pi/GeoGuessr/video.mp4"
 
