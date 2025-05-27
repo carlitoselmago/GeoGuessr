@@ -57,7 +57,7 @@ Demo rc.local file
 sleep 5
 
 # Launch VLC as user 'pi', with X11 authorization
-sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority bash /home/pi/GeoGuessr/launch_vlc.sh
+sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority bash /home/pi/GeoGuessr/launch_vlc_sender.sh
 
 # Wait for VLC to open and settle
 sleep 3
@@ -89,7 +89,7 @@ Demo rc.local file
 sleep 5
 
 # Launch VLC as user 'pi', with X11 authorization
-sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority bash /home/pi/GeoGuessr/launch_vlc.sh
+sudo -u pi DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority bash /home/pi/GeoGuessr/launch_vlc_follower.sh
 
 # Wait for VLC to open and settle
 sleep 3
