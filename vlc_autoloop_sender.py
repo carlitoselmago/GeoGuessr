@@ -55,9 +55,9 @@ def play_local_vlc(i=0):
         print("Seek to start")
         subprocess.run('xdotool key p', shell=True)
         time.sleep(1)
-    else:
-        # Start playback
-        subprocess.run('xdotool key space', shell=True)
+    
+    # Start playback
+    subprocess.run('xdotool key space', shell=True)
 
 
 def udp_listener():

@@ -23,6 +23,6 @@ while True:
             print("Seek to start")
             subprocess.run('xdotool key p', shell=True)
             time.sleep(1)
-        else:
-            subprocess.run('xdotool key space', shell=True)
+        
+        subprocess.run('xdotool key space', shell=True)
         c+=1

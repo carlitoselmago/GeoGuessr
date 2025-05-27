@@ -1,6 +1,9 @@
 #!/bin/bash
 export DISPLAY=:0
 
+#set volume for alsa
+amixer set Master 90%
+
 # Launch VLC
 vlc --aout=alsa --alsa-audio-device=hw:3,0 --no-video-title-show --qt-minimal-view --no-qt-fs-controller --start-paused /home/pi/GeoGuessr/video.mp4 &
 
