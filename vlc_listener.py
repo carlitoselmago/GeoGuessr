@@ -13,5 +13,8 @@ while True:
     data, addr = sock.recvfrom(1024)
     if data == b"PLAY":
         print(f"Received PLAY trigger from {addr[0]}. Playing video...")
-        subprocess.run('xdotool search --name VLC windowactivate --sync key Home', shell=True)
-        subprocess.run('xdotool key space', shell=True)
+        #subprocess.run('xdotool search --name VLC windowactivate --sync key Home', shell=True)
+        # Activate VLC window
+        subprocess.run('xdotool search --name "VLC" windowactivate --sync', shell=True)
+        subprocess.run('xdotool key p', shell=True)
+        #subprocess.run('xdotool key space', shell=True)
