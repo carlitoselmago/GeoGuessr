@@ -80,7 +80,7 @@ def udp_listener():
 
 if __name__ == "__main__":
     # Start UDP listener thread
-    threading.Thread(target=udp_listener, daemon=True).start()
+    #threading.Thread(target=udp_listener, daemon=True).start()
 
     # Wait for all listeners and VLC windows to be ready
     print("Sleep for 10 seconds...")
