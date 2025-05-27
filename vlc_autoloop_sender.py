@@ -45,15 +45,17 @@ def send_trigger():
         sock.sendto(b"PLAY", (ip, UDP_PORT))
     print("Sent PLAY trigger to all Pis!")
 
-def play_local_vlc():
+def play_local_vlc(i=0):
     print("Restarting VLC playback...")
     # Activate VLC window
     subprocess.run('xdotool search --name "VLC" windowactivate --sync', shell=True)
     # Seek to beginning
-    #subprocess.run('xdotool key Home', shell=True)
-    subprocess.run('xdotool key p', shell=True)
-    # Start playback
-    subprocess.run('xdotool key space', shell=True)
+    subprocess.run('xdotool key Home', shell=True)
+    if (i>0):
+        subprocess.run('xdotool key p', shell=True)
+    else:
+        # Start playback
+        subprocess.run('xdotool key space', shell=True)
 
 
 def udp_listener():
@@ -85,9 +87,10 @@ if __name__ == "__main__":
     # Get the duration of the video in seconds
     video_duration = get_video_duration(VIDEO_PATH)
     print(f"Detected video duration: {video_duration:.2f} seconds")
-
+    c=0
     while True:
         print("Starting playback round!")
         send_trigger()         # Send PLAY to all followers (and self, but ignored)
-        play_local_vlc()       # Only the sender plays locally from code
+        play_local_vlc(c)       # Only the sender plays locally from code
         time.sleep(video_duration - 0.5)
+        c+=1
