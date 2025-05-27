@@ -2,7 +2,7 @@
 export DISPLAY=:0
 
 # Launch VLC
-vlc --no-video-title-show --qt-minimal-view --no-qt-fs-controller --start-paused /home/pi/GeoGuessr/video.mp4 &
+vlc --aout=alsa --no-video-title-show --qt-minimal-view --no-qt-fs-controller --start-paused /home/pi/GeoGuessr/video.mp4 &
 
 # Wait for VLC window to appear (max 10s)
 for i in {1..20}; do
