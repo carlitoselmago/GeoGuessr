@@ -46,12 +46,14 @@ def send_trigger():
     print("Sent PLAY trigger to all Pis!")
 
 def play_local_vlc():
-    print("play_local_vlc")
-    # Focus VLC window
-    subprocess.run('xdotool search --name "VLC media player" windowactivate --sync', shell=True)
-    # Seek to start (Home key)
+    print("Restarting VLC playback...")
+    # Activate window
+    subprocess.run('xdotool search --name "VLC" windowactivate --sync', shell=True)
+    # Force seek to 0
     subprocess.run('xdotool key Home', shell=True)
-    # Press space (play, just in case)
+    # Make sure it's not paused: press space twice to unpause regardless of state
+    subprocess.run('xdotool key space', shell=True)
+    time.sleep(0.1)  # small delay to allow VLC to catch up
     subprocess.run('xdotool key space', shell=True)
 
 def udp_listener():
@@ -88,4 +90,4 @@ if __name__ == "__main__":
         print("Starting playback round!")
         send_trigger()         # Send PLAY to all followers (and self, but ignored)
         play_local_vlc()       # Only the sender plays locally from code
-        time.sleep(video_duration)
+        time.sleep(video_duration - 0.5)

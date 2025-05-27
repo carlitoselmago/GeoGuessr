@@ -20,6 +20,21 @@ sudo reboot
 ```
 Check /boot/config.txt for custom screen configuration of 720x720 dual screen, change accordingly
 
+If using direct ethernet cable, you should configure manually an ip range for both raspberrys, specially if also using wifi for debugging
+You want the signals sent by ethernet, not wifi
+
+To setup static ips from terminal (this will be permanent after reboot)
+Sender
+```
+sudo nmcli con add type ethernet ifname eth0 con-name eth0-static ip4 192.168.10.1/24
+sudo nmcli con up eth0-static
+```
+Follower
+```
+sudo nmcli con add type ethernet ifname eth0 con-name eth0-static ip4 192.168.10.2/24
+sudo nmcli con up eth0-static
+```
+
 ## Structure
 
 Run launch_vlc.sh on all raspberrys, on follower run vlc_listener.py
