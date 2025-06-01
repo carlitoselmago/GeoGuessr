@@ -35,6 +35,14 @@ sudo nmcli con add type ethernet ifname eth0 con-name eth0-static ip4 192.168.10
 sudo nmcli con up eth0-static
 ```
 
+If you need to disable taskbar, switch to XDE GUI and edit this file
+/etc/xdg/lxsession/LXDE-pi/autostart
+
+ and comment this line
+```
+#@lxpanel --profile LXDE
+```
+
 - Note on audio
 Use alsamixer for setting up volume
 and then this to store it sudo alsactl store
