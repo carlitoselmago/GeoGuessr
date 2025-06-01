@@ -20,7 +20,7 @@ if [ ! -z "$WID" ]; then
     wmctrl -ir "$WID" -b add,undecorated
     # Move and resize: 1440x720 at position 0,0 (adjust as needed)
     xdotool windowmove "$WID" 0 0
-    xdotool windowsize "$WID" 1440 720
+    xdotool windowsize "$WID" 960 480
 else
     echo "VLC window not found"
 fi
