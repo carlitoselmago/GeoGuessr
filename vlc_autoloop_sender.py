@@ -94,5 +94,5 @@ if __name__ == "__main__":
         print("Starting playback round!")
         send_trigger()         # Send PLAY to all followers (and self, but ignored)
         play_local_vlc(c)       # Only the sender plays locally from code
-        time.sleep(video_duration - 2.5)
+        time.sleep(video_duration - 8.5)
         c+=1
